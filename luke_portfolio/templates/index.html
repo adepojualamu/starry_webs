@@ -78,18 +78,21 @@
             </div>
     </section>
       
-    <section id="contactus">
-
-        {% for message in messages %}
-            <div class="container-fluid p-0">
-                <div class="alert {{ message.tags }}"  >
-                    {{ message }}
-                </div>
-            </div>
-        {% endfor %}  
+    <section id="contactus"> 
 
         <h1 class="headings">CONTACT</h1>
+
         <form action="/contact/" method="POST" class="form">
+
+            {% for message in messages %}
+                <div class="container-fluid p-0">
+                    <div class="alert {{ message.tags }}"  >
+                        {{ message }}
+                    </div>
+                </div>
+
+            {% endfor %}
+
             {% csrf_token %}
             <input type="text" name="name" class="input" placeholder="Enter your name">
             <input type="email" name="email" class="input" placeholder="Enter your email here">   
